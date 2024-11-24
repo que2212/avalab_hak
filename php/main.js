@@ -13,13 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loadContent(page){
     const contentElement = document.getElementById('main_content');
+    const btnGoBack = document.getElementsByClassName('btnGoBack');
 
     let pageUrl = './recomends.php';
     if (page==='recomends'){
         pageUrl='./recomends.php';
+
     }
     else if (page==='analytics'){
         pageUrl='./analytics.php';
+    }
+    else if (page==='chat-bot'){
+        pageUrl='./chat-bot.php';
     }
     else{
         contentElement.innerHTML = '<p>Страница не найдена.</p>';
@@ -36,6 +41,7 @@ function loadContent(page){
 
         .then(data => {
             contentElement.innerHTML = data;
+            
         })
 
         .catch(error => {
@@ -47,3 +53,8 @@ function loadContent(page){
 document.addEventListener('DOMContentLoaded', () => {
     loadContent('recomends');
 });
+
+
+function btnGoBack(){
+    btnGoBack.classList.toggle('.active');
+}

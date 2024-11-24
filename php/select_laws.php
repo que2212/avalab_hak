@@ -2,14 +2,12 @@
 // session_start();
 // include 'db_connect.php';
 
-// // Проверяем, авторизован ли пользователь
 // if (!isset($_SESSION['user_id'])) {
 //     header("Location: login.php");
 //     exit();
 // }
 
 // $user_id = $_SESSION['user_id'];
-// // Получаем уже выбранные типы пользователем
 // $sql_selected = "SELECT type_id FROM user_preferences WHERE user_id = ?";
 // $stmt_selected = $conn->prepare($sql_selected);
 // $stmt_selected->bind_param("i", $user_id);
@@ -21,7 +19,6 @@
 //     $selected_types[] = $row['type_id'];
 // }
 
-// // Получаем все типы законов
 // $sql = "SELECT * FROM law_types";
 // $result = $conn->query($sql);
 ?>
@@ -79,16 +76,15 @@
 <body>
     <h1>Выбор фильтров</h1>
 
-    <!-- Форма для нового набора фильтров -->
     <form action="save_filter_set.php" method="POST">
         <label for="set-name">Название набора:</label>
         <input type="text" id="set-name" name="set_name" required>
 
         <h3>Введите регион (оставьте пустым для всех):</h3>
-        <input type="text" id="region" name="region" placeholder="Введите регион">
+        <input type="text" id="region" name="support" placeholder="Введите регион">
 
         <h3>Масштаб (выберите один или оставьте пустым для всех):</h3>
-        <select name="scale">
+        <select name="category">
             <option value="">Все</option>
             <option value="local">Местный</option>
             <option value="regional">Региональный</option>
@@ -96,7 +92,7 @@
         </select>
 
         <h3>Отрасль (выберите один или оставьте пустым для всех):</h3>
-        <select name="branch">
+        <select name="class">
             <option value="">Все</option>
             <option value="health">Здравоохранение</option>
             <option value="education">Образование</option>
@@ -105,10 +101,15 @@
 
         <h3>Типы законов (выберите один или несколько):</h3>
         <?php
-        session_start();
+     #   session_start();
         include 'db_connect.php';
 
         $result_law_types = $conn->query("SELECT id, type_name FROM law_types");
+
+        if (!$result_law_types) {
+    die("Ошибка запроса: " . $conn->error);
+}
+
         while ($law_type = $result_law_types->fetch_assoc()): ?>
             <label>
                 <input type="checkbox" name="law_types[]" value="<?= $law_type['id'] ?>">
@@ -120,6 +121,7 @@
     </form>
 </body>
 </html>
+
 
 
 

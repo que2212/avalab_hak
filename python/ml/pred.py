@@ -6,9 +6,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 # Проверяем наличие сохраненной модели
+import joblib
+import sys
+
+# Проверяем наличие сохраненной модели
 try:
-    multi_target_clf = joblib.load('./ml/multi_target_clf.pkl')
-    vectorizer = joblib.load('./ml/vectorizer.pkl')
+    multi_target_clf = joblib.load('/app/ml/multi_target_clf.pkl')  # Указываем путь внутри контейнера
+    vectorizer = joblib.load('/app/ml/vectorizer.pkl')  # Указываем путь внутри контейнера
     print("Модель и векторизатор успешно загружены.")
     sys.exit()
 except FileNotFoundError:

@@ -7,7 +7,7 @@ a{
 body{
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
     font-weight: 600;
-    font-style: normal;
+    font-style: normal; 
 }
 
 .auth_main_div{
@@ -36,6 +36,7 @@ body{
 }
 
 .auth_main_div input{
+    /* background-color: #0a009c; */
     background-color: #3B5998;
     width: 710px;
     height: 70px;
@@ -53,16 +54,16 @@ body{
 
 .auth_main_div input.btn_go_main{
     color: white;
-    /* background-color: #3B5998; */
+    /* background-color: #0a009c; */
     background-color: #3B5998;
     font-size: 40px;
     text-align: center;
     width: 340px;
     height: 80px;
     border: 0;
-    border-radius: 10px;
-    justify-content: center; /* Центрируем по горизонтали */
-    align-items: center;
+    border-radius: 10px; 
+    justify-content: center;
+    align-items: center; 
     cursor: pointer;
     margin-left: 200px;
     margin-top: 100px;
@@ -84,6 +85,7 @@ body{
     padding-top: 60px;
     padding-left: auto;
     padding-right: auto;
+    /* color: #0a009c; */
     color: #3B5998;
     display: grid;
     place-items: center;
@@ -98,6 +100,7 @@ body{
 }
 
 .register_main_div input{
+    /* background-color: #0a009c; */
     background-color: #3B5998;
     width: 710px;
     height: 70px;
@@ -123,21 +126,22 @@ body{
     font-weight: 300;
     margin-bottom: 100px;
     margin-top: -50px;
+    /* color: #0a009c; */
     color: #3B5998;
 }
 
 .register_main_div input.btn_go_main{
     color: white;
-    /* background-color: #3B5998; */
+    /* background-color: #0a009c; */
     background-color: #3B5998;
     font-size: 40px;
     padding-right: 20px;
     width: 440px;
     height: 80px;
     border: 0;
-    border-radius: 10px;
-    justify-content: center; /* Центрируем по горизонтали */
-    align-items: center;
+    border-radius: 10px; 
+    justify-content: center; 
+    align-items: center; 
     cursor: pointer;
     margin-left: -260px;
     margin-top: 100px;
@@ -148,10 +152,6 @@ body{
     font-size: 20px;
     color: #3B5998;
     margin-left: 10px;
-}
-
-.register_main_div a:hover{
-    color: #0a009c;
 }
 
 .register_main_div p{
@@ -183,6 +183,7 @@ body{
 .recomend_header_search{
     width: 490px;
     height: 60px;
+    /* background-color: #0a009c; */
     background-color: #3B5998;
     color: #fff;
     border: 0;
@@ -195,6 +196,7 @@ body{
     display: flex;
     width: 500px;
     justify-content: space-between;
+    /* color: #0a009c; */
     color: #3B5998;
 }
 
@@ -269,4 +271,36 @@ body{
 
 .indedx_main_div button a{
     color: white;
+}
+
+
+
+
+
+.block_with_law{
+    width: 1300px;
+    border: 1px solid #3B5998;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.btnGoBack{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #3B5998;
+    font-size:14px;
+    border: 0;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.btnGoBack a{
+    color: white;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    font-weight: 600;
+    font-style: normal; 
 }

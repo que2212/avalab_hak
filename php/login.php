@@ -4,18 +4,20 @@ include 'db_connect.php';
 
 $error = '';
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Получение данных из формы
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
-    // Проверка на ошибки
     if (empty($username) || empty($password)) {
         $error = "Пожалуйста, заполните все поля.";
     } else {
-        // Получение пользователя из базы данных
         $sql = "SELECT id, password FROM users WHERE username = ?";
         $stmt = $conn->prepare($sql);
+        $stmt = $conn->prepare($sql);
+if ($stmt === false) {
+    die('Ошибка подготовки запроса: ' . $conn->error);
+}
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $stmt->store_result();
@@ -24,12 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_result($user_id, $hashed_password);
             $stmt->fetch();
 
-            // Проверка пароля
             if (password_verify($password, $hashed_password)) {
-                // Вход успешен
                 $_SESSION['user_id'] = $user_id;
-
-            header("Location: /olimpiada_laws/main.php");
+                
+            header("Location: main.php");
             exit();
 
             } else {
@@ -40,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -61,3 +63,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <p>Нет аккаунта? <a href="register.php">Зарегистрируйтесь</a></p>
 </body>
 </html>
+
+
