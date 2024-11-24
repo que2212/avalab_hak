@@ -14,7 +14,6 @@ try:
     multi_target_clf = joblib.load('/app/ml/multi_target_clf.pkl')  # Указываем путь внутри контейнера
     vectorizer = joblib.load('/app/ml/vectorizer.pkl')  # Указываем путь внутри контейнера
     print("Модель и векторизатор успешно загружены.")
-    sys.exit()
 except FileNotFoundError:
     print("Модель не найдена. Запуск обучения модели.")
     import model  # Запускаем модель, если её нет
